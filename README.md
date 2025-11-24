@@ -1,5 +1,5 @@
 # todolist
-Egyszerű C# nyelven készült konzolos To-Do List alkalmazás, amelyet egyetemi beadandóként készítettem. A projekt célja a GitHub verziókezelésének gyakorlása és a fejlesztési folyamat dokumentálása.
+Egyszerű C# nyelven készült konzolos To-Do List alkalmazás, amelyet egyetemi beadandóként készítettem.
 
 v0.1- Alap menürendszer és feladatkezelés hozzáadása:
 
