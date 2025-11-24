@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ToDoList
 {
@@ -10,7 +9,8 @@ namespace ToDoList
     {
         static void Main(string[] args)
         {
-            List<string> tasks = new List<string>();
+            // Feladatok betöltése induláskor
+            List<string> tasks = LoadTasks();
             bool running = true;
 
             while (running)
@@ -30,6 +30,10 @@ namespace ToDoList
                         Console.Write("Enter task: ");
                         string task = Console.ReadLine();
                         tasks.Add(task);
+
+                        // MENTÉS
+                        SaveTasks(tasks);
+
                         Console.WriteLine("Task added!");
                         Console.ReadKey();
                         break;
@@ -52,5 +56,21 @@ namespace ToDoList
                 }
             }
         }
+
+        // Feladatok mentése fájlba
+        static void SaveTasks(List<string> tasks)
+        {
+            File.WriteAllLines("tasks.txt", tasks);
+        }
+
+        // Feladatok betöltése fájlból
+        static List<string> LoadTasks()
+        {
+            if (File.Exists("tasks.txt"))
+                return File.ReadAllLines("tasks.txt").ToList();
+            else
+                return new List<string>();
+        }
     }
 }
+
