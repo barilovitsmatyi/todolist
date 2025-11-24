@@ -9,3 +9,7 @@ A v0.1 verzió célja a program alapjainak megteremtése és a verziókezelési 
 v0.2 - Feladatok mentése és betöltése fájlból:
 
 Ebben a verzióban megvalósult a feladatok fájlba mentése és induláskor történő automatikus betöltése. A program a tasks.txt fájlban tárolja a felhasználó által felvett feladatokat, így azok a következő indításkor is elérhetők maradnak. Új feladat hozzáadásakor a program azonnal frissíti a fájl tartalmát. Ezzel a verzióval a To-Do List alkalmazás már tartós adatkezelésre is képes, nem csak futás közbeni tárolásra.
+
+v0.3 - Feladat törlése sorszám alapján
+
+Ebben a verzióban elkészült a feladatok törlésének funkciója. A program a felhasználónak számozva megjeleníti az aktuális feladatlistát, majd egy sorszám megadásával lehetővé teszi az adott feladat eltávolítását. A törlés után a módosított lista azonnal elmentésre kerül a tasks.txt fájlba. A funkció kezeli a hibás vagy érvénytelen sorszám megadását is.
