@@ -13,3 +13,9 @@ Ebben a verzióban megvalósult a feladatok fájlba mentése és induláskor tö
 v0.3 - Feladat törlése sorszám alapján
 
 Ebben a verzióban elkészült a feladatok törlésének funkciója. A program a felhasználónak számozva megjeleníti az aktuális feladatlistát, majd egy sorszám megadásával lehetővé teszi az adott feladat eltávolítását. A törlés után a módosított lista azonnal elmentésre kerül a tasks.txt fájlba. A funkció kezeli a hibás vagy érvénytelen sorszám megadását is.
+
+v0.4 – Státuszkezelés és feladat módosítása
+
+Ebben a verzióban elkészült a feladatok részletes kezelése: bevezetésre került a TaskItem osztály, lehetőség van feladatok módosítására, a feladatok kész / nincs kész státusza kapcsolható, a fájlformátum bővült, most minden sor tartalmazza a feladat státuszát is (0/1;leírás).
+
+A program így már egy teljes funkcionalitású, fájlba mentő ToDoList alkalmazás.
