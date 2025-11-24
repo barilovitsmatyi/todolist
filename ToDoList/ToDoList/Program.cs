@@ -20,6 +20,7 @@ namespace ToDoList
                 Console.WriteLine("1) Add task");
                 Console.WriteLine("2) List tasks");
                 Console.WriteLine("3) Exit");
+                Console.WriteLine("4) Delete task");
                 Console.Write("> ");
 
                 string choice = Console.ReadLine();
@@ -29,24 +30,77 @@ namespace ToDoList
                     case "1":
                         Console.Write("Enter task: ");
                         string task = Console.ReadLine();
-                        tasks.Add(task);
 
-                        // MENTÉS
-                        SaveTasks(tasks);
+                        if (!string.IsNullOrWhiteSpace(task))
+                        {
+                            tasks.Add(task);
+                            SaveTasks(tasks);
+                            Console.WriteLine("Task added!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Empty task was not added.");
+                        }
 
-                        Console.WriteLine("Task added!");
                         Console.ReadKey();
                         break;
 
                     case "2":
                         Console.WriteLine("\nYour tasks:");
-                        for (int i = 0; i < tasks.Count; i++)
-                            Console.WriteLine($"{i + 1}. {tasks[i]}");
+
+                        if (tasks.Count == 0)
+                        {
+                            Console.WriteLine("There are no tasks yet.");
+                        }
+                        else
+                        {
+                            for (int i = 0; i < tasks.Count; i++)
+                            {
+                                Console.WriteLine($"{i + 1}. {tasks[i]}");
+                            }
+                        }
+
                         Console.ReadKey();
                         break;
 
                     case "3":
                         running = false;
+                        break;
+
+                    case "4":
+                        Console.WriteLine("\nCurrent tasks:");
+
+                        if (tasks.Count == 0)
+                        {
+                            Console.WriteLine("There are no tasks to delete.");
+                            Console.ReadKey();
+                            break;
+                        }
+
+                        for (int i = 0; i < tasks.Count; i++)
+                        {
+                            Console.WriteLine($"{i + 1}. {tasks[i]}");
+                        }
+
+                        Console.Write("\nEnter the number of the task to delete: ");
+                        string deleteInput = Console.ReadLine();
+
+                        int deleteIndex;
+                        if (int.TryParse(deleteInput, out deleteIndex) &&
+                            deleteIndex >= 1 &&
+                            deleteIndex <= tasks.Count)
+                        {
+                            string removedTask = tasks[deleteIndex - 1];
+                            tasks.RemoveAt(deleteIndex - 1);
+                            SaveTasks(tasks);
+                            Console.WriteLine($"Task deleted: {removedTask}");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid task number.");
+                        }
+
+                        Console.ReadKey();
                         break;
 
                     default:
@@ -73,4 +127,5 @@ namespace ToDoList
         }
     }
 }
+
 
